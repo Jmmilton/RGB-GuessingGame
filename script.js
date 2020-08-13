@@ -10,6 +10,7 @@ const colours = [
 const squares = document.querySelectorAll(".square");
 const pickedColour = colours[3];
 const colourDisplay = document.getElementById('colourDisplay')
+let messageDisplay = document.querySelector("#message");
 
 colourDisplay.textContent = pickedColour;
 
@@ -23,10 +24,19 @@ for(var i = 0; i < squares.length; i++){
         const clickedColour = this.style.backgroundColor;
         //compare colour to pickedColour
         if(clickedColour === pickedColour){
-            alert('Correct!')
+            changeColours(clickedColour)
+            messageDisplay.textContent = "Correct!!"
         } else {
-            alert('Wrong!!!!!!!!!')
+            this.style.backgroundColor = "#232323";
+            messageDisplay.textContent = 'Try Again!'
         }
     })
 }
 
+function changeColours(colour){
+    //loop through all squares
+    for(var i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colour; 
+    }
+    //change each colour to math given colour
+}
