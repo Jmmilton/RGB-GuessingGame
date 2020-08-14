@@ -1,10 +1,24 @@
-const colours = generateRandomColours(6);
+let colours = generateRandomColours(6);
 
 const squares = document.querySelectorAll(".square");
-const pickedColour = pickColour();
+let pickedColour = pickColour();
 const colourDisplay = document.getElementById('colourDisplay')
 let messageDisplay = document.querySelector("#message");
 const h1 = document.querySelector("h1")
+const resetButton = document.querySelector("#reset");
+
+resetButton.addEventListener("click", function(){
+    //generate all new colours
+    colours = generateRandomColours(6);
+    //pick new random colur from array
+    pickedColour = pickColour();
+    //change colourDisplay to match picked colour
+    colourDisplay.textContent = pickedColour;
+    //change colours of squares
+    for(var i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colours[i];
+    }
+})
 
 colourDisplay.textContent = pickedColour;
 
