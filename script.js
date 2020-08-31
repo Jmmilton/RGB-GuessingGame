@@ -94,7 +94,6 @@ function generateRandomColours(num){
     for(var i = 0; i < num; i++){
         //get random colour and push into array
         arr.push(randomColour())
-
     }
     // return that array
     return arr
@@ -105,5 +104,4 @@ function randomColour(){
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     return "rgb(" + r + ", " + g + ", " + b + ")";
-
 }
